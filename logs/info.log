@@ -1,0 +1,24 @@
+20:25:27.866 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - logback: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+20:25:27.899 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - logback: Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interfaces.
+20:25:28.241 [main] INFO  o.f.c.i.license.VersionPrinter - logback: Flyway Community Edition 9.8.1 by Redgate
+20:25:28.242 [main] INFO  o.f.c.i.license.VersionPrinter - logback: See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.8.1
+20:25:28.242 [main] INFO  o.f.c.i.license.VersionPrinter - logback: 
+20:25:28.247 [main] INFO  com.zaxxer.hikari.HikariDataSource - logback: HikariPool-1 - Starting...
+20:25:28.533 [main] INFO  com.zaxxer.hikari.pool.HikariPool - logback: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3d0cac1f
+20:25:28.535 [main] INFO  com.zaxxer.hikari.HikariDataSource - logback: HikariPool-1 - Start completed.
+20:25:28.551 [main] INFO  o.f.c.i.d.base.BaseDatabaseType - logback: Database: jdbc:postgresql://localhost:5432/postgres (PostgreSQL 16.3)
+20:25:28.559 [main] WARN  o.f.c.i.database.base.Database - logback: Flyway upgrade recommended: PostgreSQL 16.3 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+20:25:28.578 [main] INFO  o.f.core.internal.command.DbValidate - logback: Successfully validated 1 migration (execution time 00:00.011s)
+20:25:28.656 [main] INFO  o.f.core.internal.command.DbMigrate - logback: Current version of schema "public": 1
+20:25:28.657 [main] INFO  o.f.core.internal.command.DbMigrate - logback: Schema "public" is up to date. No migration necessary.
+20:25:28.729 [main] INFO  o.h.jpa.internal.util.LogHelper - logback: HHH000204: Processing PersistenceUnitInfo [name: default]
+20:25:28.792 [main] INFO  org.hibernate.Version - logback: HHH000412: Hibernate ORM core version 6.2.7.Final
+20:25:28.794 [main] INFO  org.hibernate.cfg.Environment - logback: HHH000406: Using bytecode reflection optimizer
+20:25:28.914 [main] INFO  o.h.b.i.BytecodeProviderInitiator - logback: HHH000021: Bytecode provider name : bytebuddy
+20:25:29.032 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - logback: No LoadTimeWeaver setup: ignoring JPA class transformer
+20:25:29.316 [main] INFO  o.h.b.i.BytecodeProviderInitiator - logback: HHH000021: Bytecode provider name : bytebuddy
+20:25:29.757 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - logback: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+20:25:29.760 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - logback: Initialized JPA EntityManagerFactory for persistence unit 'default'
+20:26:03.364 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - logback: Closing JPA EntityManagerFactory for persistence unit 'default'
+20:26:03.366 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - logback: HikariPool-1 - Shutdown initiated...
+20:26:03.387 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - logback: HikariPool-1 - Shutdown completed.

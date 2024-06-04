@@ -1,0 +1,72 @@
+<configuration>
+    <!-- Импорт классов PatternLayoutEncoder и ConsoleAppender. Эти строки необязательны и обычно используются для удобства чтения или если классы определены в другом месте. -->
+    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
+    <import class="ch.qos.logback.core.ConsoleAppender"/>
+
+    <!-- Определение свойств для корневой папки логов и имен файлов для логов уровней INFO и DEBUG. -->
+    <property name="LOG_ROOT" value="./logs"/>
+    <property name="INFO_LOG_FILE_NAME" value="info"/>
+    <property name="DEBUG_LOG_FILE_NAME" value="debug"/>
+
+    <!-- Аппендер для вывода логов в консоль. -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Определение кодировщика для консольного аппендера с шаблоном вывода логов. -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - logback: %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Аппендер для вывода логов уровня INFO в файл. -->
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- Определение пути к файлу для логов уровня INFO. -->
+        <file>${LOG_ROOT}/${INFO_LOG_FILE_NAME}.log</file>
+        <!-- Настройка политики ротации логов по размеру и времени. -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- Шаблон имени файлов для архивных логов. -->
+            <fileNamePattern>${LOG_ROOT}/${INFO_LOG_FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!-- Максимальный размер файла лога до ротации. -->
+            <maxFileSize>1MB</maxFileSize>
+            <!-- Максимальное количество файлов истории. -->
+            <maxHistory>100</maxHistory>
+            <!-- Общий максимальный размер всех файлов истории. -->
+            <totalSizeCap>10MB</totalSizeCap>
+        </rollingPolicy>
+        <!-- Определение кодировщика для файла с шаблоном вывода логов. -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - logback: %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Аппендер для вывода логов уровня DEBUG в файл. -->
+    <appender name="FILE_DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- Определение пути к файлу для логов уровня DEBUG. -->
+        <file>${LOG_ROOT}/${DEBUG_LOG_FILE_NAME}.log</file>
+        <!-- Настройка политики ротации логов по размеру и времени. -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- Шаблон имени файлов для архивных логов. -->
+            <fileNamePattern>${LOG_ROOT}/${DEBUG_LOG_FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!-- Максимальный размер файла лога до ротации. -->
+            <maxFileSize>1KB</maxFileSize>
+            <!-- Максимальное количество файлов истории. -->
+            <maxHistory>10</maxHistory>
+            <!-- Общий максимальный размер всех файлов истории. -->
+            <totalSizeCap>1MB</totalSizeCap>
+        </rollingPolicy>
+        <!-- Определение кодировщика для файла с шаблоном вывода логов. -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - logback: %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Логгер для пакета org.example с уровнем DEBUG, выводящий логи в файл и в консоль. -->
+    <logger name="org.example" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_DEBUG"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- Корневой логгер с уровнем INFO, выводящий логи в файл и в консоль. -->
+    <root level="INFO">
+        <appender-ref ref="FILE_INFO"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
